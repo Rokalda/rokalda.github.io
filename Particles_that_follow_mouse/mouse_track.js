@@ -1,4 +1,4 @@
-const colors=["#B197FC","#89ed07","#26b0ff",""]
+const colors=["#B197FC","#89ed07","#26b0ff","#ffd105"]
 document.onmousemove=(ev)=>{
    let index=Math.floor(Math.random()*colors.length);
 
