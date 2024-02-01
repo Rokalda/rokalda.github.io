@@ -17,9 +17,9 @@ document.onmousemove=(ev)=>{
 
     document.body.appendChild(star)
     
-   // setTimeout(()=>{
-   //  star.className+=" fade"
-   // },300)
+    setTimeout(()=>{
+     star.className+=" fade"
+    },300)
 
 }
 
