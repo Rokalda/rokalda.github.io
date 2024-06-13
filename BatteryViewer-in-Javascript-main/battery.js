@@ -18,7 +18,7 @@ if("getBattery" in navigator){
         updateBatteryUI()
         updateBatteryonCharge()
         function updateBatteryUI(){
-            let percent_left=batt_manager.level * 100;
+            let percent_left=Math.round(batt_manager.level * 100);
             
             for(let key of percent_color_ranges.keys()){
                 if(percent_left <=key[1] && percent_left >=key[0]){
@@ -34,7 +34,13 @@ if("getBattery" in navigator){
         function updateBatteryonCharge(){
             let ischarging = batt_manager.charging;
             batt_baseEl.classList.toggle("charging",ischarging)
-            platformEl.parentElement.hidden=!ischarging;
+            if(ischarging){
+                platformEl.parentElement.style.opacity="1"
+            }
+            else{
+                platformEl.parentElement.style.opacity="0"
+            }
+          
             platformEl.textContent=navigator.userAgentData.platform
         }
 

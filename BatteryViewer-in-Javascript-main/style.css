@@ -29,12 +29,18 @@ h1{
 .battery{
     display: flex;
     --batt-color:black;
+    flex-wrap: wrap;
 }
+.battery > div{
+    display: flex;
+}
+
 .battery:has(.battery_base.charging){
     --batt-color:rgb(49, 49, 229);
 }
 .battery_base{
-    width: 300px;
+   max-width: 300px;
+   width: 100%;
     padding: 4px;
     height: 80px;
     border:10px solid var(--batt-color);
@@ -81,16 +87,16 @@ border:3px solid white;
         background-position: right;
     }
 }
-.battery_head{
-width:30px;
-height: 50px;
-background-color: var(--batt-color);
-align-self: center;
-border-top-right-radius: 10px;
-
-border-bottom-right-radius: 10px;
+.battery_head {
+    width: 30px;
+    height: 50px;
+    background-color: var(--batt-color);
+    align-self: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    right: -35px;
 }
-
 .battery_percentage{
     font-size:70px;
     font-family: monospace;
