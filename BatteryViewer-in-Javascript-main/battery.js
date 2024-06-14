@@ -1,8 +1,11 @@
+const batt_percentEl=document.querySelector(".battery_percentage");
+const batt_powerEl=document.querySelector(".battery_power");
+const batt_baseEl=document.querySelector(".battery_base");
+const battery=document.querySelector(".battery")
+const platformEl =document.getElementById("platform")
+const h1El = document.querySelector("h1")
 if("getBattery" in navigator){
-    const batt_percentEl=document.querySelector(".battery_percentage");
-    const batt_powerEl=document.querySelector(".battery_power");
-    const batt_baseEl=document.querySelector(".battery_base");
-    const platformEl =document.getElementById("platform")
+
 
     const percent_color_ranges=new Map()
     percent_color_ranges.set([0,20],"--low")
@@ -46,4 +49,15 @@ if("getBattery" in navigator){
 
     })
   
+}
+else{
+    h1El.textContent="Sorry, the Battery Viewer Feature that this webpage uses is not supported by this browser"
+    platformEl.parentElement.style.opacity="1"
+    platformEl.parentElement.textContent=`Your ${navigator.oscpu.split(";")[0] } devices battery info cannot be viewed in this Browser`
+    batt_percentEl.textContent="N/A"
+    battery.classList.add("unavailable")
+
+  
+    
+    
 }
