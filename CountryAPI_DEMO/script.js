@@ -21,22 +21,20 @@ getNames()
 
 async function getCountryData(){
     document.querySelector(".country-data").classList.add("loading")
-    const response =await fetch(restapiurl+"name/"+name_input.value+"?fields=flags,latlng")
+    const response =await fetch(restapiurl+"name/"+name_input.value+"?fields=flags")
     document.querySelector(".country-data").classList.remove("loading")
 
     if(response.ok){
         const data = await response.json();
         let flagdata = data[0].flags
-        let latilong=data[0].latlng
     
-        console.log(latilong)
     
     
         c_flag.querySelector(".title").textContent=`${name_input.value}'s FLAG`
        c_flag.querySelector("img").src=flagdata.png
     
        c_map.querySelector(".title").textContent = `${name_input.value}'s MAP`
-       c_map.querySelector("iframe").src=base_embededMapSrc +`${latilong[0]},${latilong[1]}`
+       c_map.querySelector("iframe").src=base_embededMapSrc +`${name_input.value}`
     }
     else if(response.status==404){
         alert("This Country cannot be found")
