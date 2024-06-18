@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country API Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form id="country_form">
+        <label for="country-names">Enter the name of a Country: </label>
+        <input list="country-names"  id="country-names-input" required/>
+        <datalist id="country-names" >
+        
+        </datalist>
+        <button id="searchBtn">Search</button>
+    </form>
+
+        <div class="country-data">
+            <div id="loader">
+                <p>LOADING Country Data...</p>
+            </div>
+            <div class="country-flag">
+                <p class="title">Country's FLAG</p>
+                <img loading="lazy" >
+            </div>
+            <div class="country-map">
+                <p class="title">Country's MAP</p>
+                <iframe  loading="lazy" ></iframe>
+
+            </div>
+        </div>
+
+
+
+</body>
+<script src="script.js"></script>
+</html>

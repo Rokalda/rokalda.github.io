@@ -1,0 +1,148 @@
+:root{
+    font-size: 24px;
+    font-weight: bold;
+    font-family: sans-serif;
+    background-color: aliceblue;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.title{
+font-size: 1.4rem;
+}
+
+#country_form{
+    padding: 11px;
+}
+
+#country-names-input{
+    padding: 2px;
+    font-size:0.8rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+#searchBtn{
+font-family: monospace;
+padding: 7px 10px;
+border-radius: 6px;
+font-size:1rem;
+}
+
+
+.country-data{
+    display: flex;
+    flex-wrap: wrap;
+   padding: 1rem 10px;
+   column-gap: 2vw;
+   position: relative;
+ 
+  
+}
+.country-data > *{
+    flex-grow: 0.4;
+}
+#loader{
+    display: none;
+}
+.country-data.loading #loader{
+position: absolute;
+inset: 0;
+display: block;
+
+
+height: fit-content;
+padding-block: inherit;
+    
+ }
+ .country-data.loading *:not(#loader,#loader *){
+    display: none;
+ }
+ .country-data.loading #loader p{
+    
+     color:palevioletred;
+     font-size:2em;
+     text-align: center;
+
+
+ }
+
+.country-data.loading #loader::after{
+    content: "";
+    display: block;
+    margin: 10px auto;
+    width: 6em;
+    aspect-ratio: 1;
+    background-color: red;
+    outline: 0.4em solid rgba(255, 0, 0, 0.611);
+
+    border-radius: 1rem;
+
+    animation: load 0.7s infinite ease-in;
+    
+    
+}
+
+@keyframes load {
+    0%{
+        scale: 1;
+       
+    }
+    33%{
+        scale: 1.05;
+        
+    }
+    56%{
+        scale :1.09;
+        outline-offset: 10px;
+        
+    }
+
+    66%{
+        scale:1.2;
+        outline-width: 0px;
+    }
+
+    80%{
+        scale:1.05;
+     
+    }
+    100%{
+        scale: 1;
+    }
+}
+.country-flag{
+    width: auto;
+}
+iframe:not([src]){
+    display: none;
+}
+
+.country-flag img{
+
+    width: 100%;
+    max-width: 400px;
+   
+}
+
+.country-map iframe{
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 2/3;
+}
+
+/* .country-flag img:not([src]){
+background-color: black;
+aspect-ratio: 3/2;
+
+}
+.country-flag img:not([src])::before{
+    content: "?";
+    color: white;
+    font-size:80px;
+}  */
+
