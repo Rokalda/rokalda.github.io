@@ -35,9 +35,12 @@ async function getCountryData(){
         c_flag.querySelector(".title").innerHTML=`<span class="sthr_text" style="background-image:url(${flagdata.png})">${nameData.common}'s</span> FLAG`
        c_flag.querySelector("img").src=flagdata.png
        c_flag.querySelector("img").alt=flagdata.alt;
+      
        
        c_map.querySelector(".title").innerHTML = `<span class="sthr_text" style="background-image:url(${flagdata.png})">${nameData.common}'s</span> MAP`
        c_map.querySelector("iframe").src=base_embededMapSrc +`${nameData.common}`
+
+       c_flag.querySelector(".desc").innerHTML=flagdata.alt;
     }
     else if(response.status==404){
         alert("This Country cannot be found")
@@ -53,4 +56,16 @@ async function getNames(){
         let option = `<option value="${name.common}"></option>`
         name_datalist.innerHTML+=option;
    }
+}
+
+
+function parseforColorNames(string){
+    let arr_of_words = string.split(" ")
+    let parsedString=""
+    for(let word of arr_of_words){
+        word=` <span style="color:${word}">${word}</span> `
+        parsedString+=word
+    }
+    return parsedString
+
 }

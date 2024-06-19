@@ -15,8 +15,12 @@
 font-size: 1.4rem;
 }
 
-#country_form{
+#country_form {
     padding: 11px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.4rem;
+    column-gap: 2vw;
 }
 
 #country-names-input{
@@ -125,9 +129,9 @@ padding-block: inherit;
     
     color:transparent;
     background-size: 150%;
-     -webkit-text-stroke: 0.01em black; 
+     -webkit-text-stroke: 0.03em black; 
     
-
+    font-size: 120%;
     background-clip: text;
 
 
@@ -148,7 +152,19 @@ iframe:not([src]){
     box-shadow: 0px 11px 20px 0px #a19797;
    
 }
+.country-flag .desc:empty{
+    display: none;
+}
+.country-flag .desc::before{
+    content: "Description: ";
+    font-weight: bolder;
+    color: rgb(212, 17, 76);
 
+}
+.country-flag .desc{
+display: block;
+margin-top: 20px;
+}
 .country-map iframe{
     width: 100%;
     max-width: 500px;
