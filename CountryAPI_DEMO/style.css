@@ -39,6 +39,7 @@ font-size:1rem;
     flex-wrap: wrap;
    padding: 1rem 10px;
    column-gap: 2vw;
+   row-gap: 6vh;
    position: relative;
  
   
@@ -138,6 +139,7 @@ iframe:not([src]){
 
     width: 100%;
     max-width: 400px;
+    box-shadow: 0px 11px 20px 0px #a19797;
    
 }
 

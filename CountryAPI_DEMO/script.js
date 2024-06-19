@@ -22,20 +22,22 @@ getNames()
 
 async function getCountryData(){
     document.querySelector(".country-data").classList.add("loading")
-    const response =await fetch(restapiurl+"name/"+name_input.value+"?fields=flags")
+    const response =await fetch(restapiurl+"name/"+name_input.value+"?fullText=True&fields=flags,name")
     document.querySelector(".country-data").classList.remove("loading")
 
     if(response.ok){
+        console.log("Request to "+response.url+" was successful")
         const data = await response.json();
         let flagdata = data[0].flags
-    
+        let nameData = data[0].name;
     
         
-        c_flag.querySelector(".title").innerHTML=`<span class="sthr_text" style="background-image:url(${flagdata.png})">${name_input.value}'s</span> FLAG`
+        c_flag.querySelector(".title").innerHTML=`<span class="sthr_text" style="background-image:url(${flagdata.png})">${nameData.common}'s</span> FLAG`
        c_flag.querySelector("img").src=flagdata.png
-    
-       c_map.querySelector(".title").innerHTML = `<span class="sthr_text" style="background-image:url(${flagdata.png})">${name_input.value}'s</span> MAP`
-       c_map.querySelector("iframe").src=base_embededMapSrc +`${name_input.value}`
+       c_flag.querySelector("img").alt=flagdata.alt;
+       
+       c_map.querySelector(".title").innerHTML = `<span class="sthr_text" style="background-image:url(${flagdata.png})">${nameData.common}'s</span> MAP`
+       c_map.querySelector("iframe").src=base_embededMapSrc +`${nameData.common}`
     }
     else if(response.status==404){
         alert("This Country cannot be found")
