@@ -78,9 +78,11 @@ padding-block: inherit;
     width: 6em;
     aspect-ratio: 1;
     background-color: red;
-    outline: 0.4em solid rgba(255, 0, 0, 0.611);
+    outline-color: rgba(255, 0, 0, 0.611);
+    outline-width: 0.4em;
+    outline-style: solid;
 
-    border-radius: 1rem;
+    border-radius: 50%;
 
     animation: load 0.7s infinite ease-in;
     
@@ -109,11 +111,21 @@ padding-block: inherit;
 
     80%{
         scale:1.05;
+       
      
     }
     100%{
         scale: 1;
+        
     }
+}
+.sthr_text{
+    
+    color: transparent;
+    background-size: 150%;
+    -webkit-text-stroke: 1.2px black;
+    background-clip: text;
+    
 }
 .country-flag{
     width: auto;

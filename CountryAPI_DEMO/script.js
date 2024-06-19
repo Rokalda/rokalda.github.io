@@ -11,6 +11,7 @@ const c_map = document.querySelector(".country-map")
 const searchBtn = document.getElementById("searchBtn")
 
 country_form.onsubmit=(e)=>{
+    console.log(e)
     e.preventDefault();
     getCountryData()
 }
@@ -29,11 +30,11 @@ async function getCountryData(){
         let flagdata = data[0].flags
     
     
-    
-        c_flag.querySelector(".title").textContent=`${name_input.value}'s FLAG`
+        
+        c_flag.querySelector(".title").innerHTML=`<span class="sthr_text" style="background-image:url(${flagdata.png})">${name_input.value}'s</span> FLAG`
        c_flag.querySelector("img").src=flagdata.png
     
-       c_map.querySelector(".title").textContent = `${name_input.value}'s MAP`
+       c_map.querySelector(".title").innerHTML = `<span class="sthr_text" style="background-image:url(${flagdata.png})">${name_input.value}'s</span> MAP`
        c_map.querySelector("iframe").src=base_embededMapSrc +`${name_input.value}`
     }
     else if(response.status==404){
