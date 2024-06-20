@@ -10,7 +10,12 @@
     padding: 0;
 }
 
-
+h1{
+    font-size: 32px;
+    margin: 10px;
+    font-weight: sans-serif;
+    
+}
 .title{
 font-size: 1.4rem;
 }
@@ -155,6 +160,7 @@ iframe:not([src]){
 .country-flag .desc:empty{
     display: none;
 }
+
 .country-flag .desc::before{
     content: "Description: ";
     font-weight: bolder;
@@ -165,20 +171,33 @@ iframe:not([src]){
 display: block;
 margin-top: 20px;
 }
+
+.country-coa img{
+    width: 100%;
+    max-width: 400px;
+    max-height: 300px;
+    display: block;
+    margin-inline:auto;
+    object-fit: contain;
+}
+
 .country-map iframe{
     width: 100%;
     max-width: 500px;
     aspect-ratio: 2/3;
+    margin-top: 13px;
 }
+ .coords{
+    font-weight: bolder;
+    font-size: 110%;
+    margin-block: 10px;
+ }
 
-/* .country-flag img:not([src]){
-background-color: black;
-aspect-ratio: 3/2;
-
-}
-.country-flag img:not([src])::before{
-    content: "?";
-    color: white;
-    font-size:80px;
-}  */
+ .country-map:has(.area:empty,.population:empty){
+    display: none;
+ }
+ .area, .population{
+    color:blue;
+    font-size:125%;
+ }
 

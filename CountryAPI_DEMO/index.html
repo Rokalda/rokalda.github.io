@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Country API Demo</title>
+    <title>Rest Country API Demo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <h1><a href="https://restcountries.com/" target="_blank">REST Countries API</a> DEMO</h1>
     <form id="country_form">
         <label for="country-names">Enter the name of a Country: </label>
         <input list="country-names"  id="country-names-input"  required/>
@@ -26,11 +26,23 @@
                 <img loading="lazy" >
                 <span class="desc"></span>
             </div>
+            <div class="country-coa">
+                <p class="title">Country's Coat of Arms</p>
+                <img loading="lazy" >
+            
+            </div>
             <div class="country-map">
                 <p class="title">Country's MAP</p>
-                <iframe  loading="lazy" ></iframe>
+                <p class="coords"></p>
+                <p class="desc">
+                    With an area of <span class="area"></span> Km<sup>2</sup> and the home to <span class="population"></span>  
+                    <span class="demonym"></span> citizens
 
+                </p>
+                <iframe  loading="lazy" ></iframe>
+              
             </div>
+
         </div>
 
 
