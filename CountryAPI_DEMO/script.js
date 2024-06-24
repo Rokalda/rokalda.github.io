@@ -48,8 +48,10 @@ async function displayCountryData(country_name){
 
         c_flag.querySelector(".title").innerHTML=`<span class="sthr_text" style="background-image:url(${flagdata.png})">${nameData.common}'s</span> FLAG`
        c_flag.querySelector("img").src=flagdata.png
+        
        c_flag.querySelector("img").alt=flagdata.alt;
-      
+        let icon_link=document.querySelector('link[rel="shortcut icon"]')
+        icon_link.href=flagdata.png;
        if(coaData.png ==""){
         coa_El.querySelector(".title").innerHTML=`<span class="sthr_text" style="background-image:url(${flagdata.png})">${nameData.common}</span> has no Coat of Arms`
         coa_El.querySelector("img").src=coaData.png;
