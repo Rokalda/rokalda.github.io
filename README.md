@@ -5,3 +5,5 @@
 [SecretMission](https://rokalda.github.io/SecretMission)
 
 [Country API DEMO](https://rokalda.github.io/CountryAPI_DEMO)
+
+[Media Devices DEMO](https://rokalda.github.io/Display-Media-in-Javascript/)
