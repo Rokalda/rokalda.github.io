@@ -134,7 +134,7 @@ padding-block: inherit;
     
     color:transparent;
     background-size: 150%;
-     -webkit-text-stroke: 0.03em black; 
+     -webkit-text-stroke: 0.03em currentColor; 
     
     font-size: 120%;
     background-clip: text;
