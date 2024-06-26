@@ -201,3 +201,37 @@ margin-top: 20px;
     font-size:125%;
  }
 
+.copy_link{
+    padding: 10px 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    
+    margin: auto;
+    width: fit-content;
+    cursor: pointer;
+    border: 2px solid rgb(222, 196, 196);
+    transition: background-color 0.3s ease ,color 0.2s;
+}
+
+.copy_link::before {
+    content: url(copy-link-icon.svg);
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+ 
+}
+.copy_link.copied{
+   
+    color: #15d822;
+   
+    
+    
+  
+}
+
+.copy_link:hover{
+    background-color: rgba(0, 0, 0, 0.134);
+    color: blue;
+}

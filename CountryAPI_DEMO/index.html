@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon"  type="image/x-icon">
+    <link rel="shortcut icon"  type="image/x-icon" href="blank">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rest Country API Demo</title>
     <link rel="stylesheet" href="style.css">
@@ -10,13 +10,14 @@
 <body>
     <h1><a href="https://restcountries.com/" target="_blank">REST Countries API</a> DEMO</h1>
     <form id="country_form">
-        <label for="country-names">Enter the name of a Country: </label>
+        <label for="country-names-input">Enter the name of a Country: </label>
         <input list="country-names"  id="country-names-input"  required/>
         <datalist id="country-names" >
         
         </datalist>
         <button id="searchBtn">Search</button>
     </form>
+        <div class="copy_link" role="button" style="display: none;">Copy  Link</div>
 
         <div class="country-data">
             <div id="loader">

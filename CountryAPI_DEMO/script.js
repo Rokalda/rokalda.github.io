@@ -10,6 +10,9 @@ const coa_El = document.querySelector(".country-coa")
 const c_flag = document.querySelector(".country-flag")
 const c_map = document.querySelector(".country-map")
 const searchBtn = document.getElementById("searchBtn")
+const cpy_link = document.querySelector(".copy_link")
+
+
 
 country_form.onsubmit=(e)=>{
     console.log(e)
@@ -33,10 +36,11 @@ async function displayCountryData(country_name){
     document.querySelector(".country-data").classList.add("loading")
     const response =await fetch(restapiurl+"name/"+country_name+"?fullText=True&fields=flags,name,latlng,coatOfArms,demonyms,population,area")
     document.querySelector(".country-data").classList.remove("loading")
+    
 
     if(response.ok){
         console.log("Request to "+response.url+" was successful")
-
+        
         const data = await response.json();
         let flagdata = data[0].flags
         let nameData = data[0].name;
@@ -45,6 +49,17 @@ async function displayCountryData(country_name){
         let denonymData = data[0].demonyms;
         let areadata = data[0].area;
         let populationData = data[0].population;
+        cpy_link.style.display="";
+        cpy_link.textContent="Copy Link"
+        cpy_link.classList.remove("copied")
+
+        cpy_link.onclick=()=>{
+            navigator.clipboard.writeText(window.location.href+"?"+"country_name="+nameData.common).then(()=>{
+                cpy_link.classList.add("copied")
+                cpy_link.textContent="Link Copied !"
+
+            })
+        }
 
         c_flag.querySelector(".title").innerHTML=`<span class="sthr_text" style="background-image:url(${flagdata.png})">${nameData.common}'s</span> FLAG`
        c_flag.querySelector("img").src=flagdata.png
