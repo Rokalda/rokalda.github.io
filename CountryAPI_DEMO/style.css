@@ -183,10 +183,21 @@ margin-top: 20px;
 
 .country-map iframe{
     width: 100%;
-    max-width: 500px;
+    
     aspect-ratio: 2/3;
     margin-top: 13px;
 }
+
+@media (width>= 500px) {
+    .country-map iframe{
+       
+      
+        aspect-ratio: 3/2;
+        
+        
+    }
+}
+
  .coords{
     font-weight: bolder;
     font-size: 110%;
