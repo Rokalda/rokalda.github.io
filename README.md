@@ -7,3 +7,5 @@
 [Country API DEMO](https://rokalda.github.io/CountryAPI_DEMO)
 
 [Media Devices DEMO](https://rokalda.github.io/Display-Media-in-Javascript/)
+
+[USB-Handling-in-Javascript](https://rokalda.github.io/USB-Handling-in-Javascript)
