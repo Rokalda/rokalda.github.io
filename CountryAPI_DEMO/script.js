@@ -1,7 +1,7 @@
 const base_embededMapSrc=`https://maps.google.com/maps?&hl=${navigator.language}&z=8&output=embed&q=`
 
-const restapiurl="https://restcountries.com/v3.1/"
-
+const restapiurl="https://api.restcountries.com/countries/v5"
+const api_key = { headers: { 'Authorization': 'Bearer rc_live_fb9fef77d72d4438ba7b74c06da21c8a' }} 
 
 const  country_form = document.getElementById("country_form")
 const name_input=document.getElementById("country-names-input")
@@ -34,7 +34,7 @@ window.onload=()=>{
 
 async function displayCountryData(country_name){
     document.querySelector(".country-data").classList.add("loading")
-    const response =await fetch(restapiurl+"name/"+country_name+"?fullText=True&fields=flags,name,latlng,coatOfArms,demonyms,population,area")
+    const response =await fetch(restapiurl+"name/"+country_name+"?fullText=True&fields=flags,name,latlng,coatOfArms,demonyms,population,area",api_key)
     document.querySelector(".country-data").classList.remove("loading")
     
 
@@ -93,7 +93,7 @@ async function displayCountryData(country_name){
 }
 
 async function getNames(){
-    const response=await fetch(restapiurl+"all?fields=name")
+    const response=await fetch(restapiurl+"all?fields=name",api_key)
     const allcountrys= await response.json()
     allcountrys.sort((a,b)=>a.name.common.localeCompare(b.name.common))
   
