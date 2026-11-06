@@ -6,8 +6,9 @@ const restapiurl="https://countries.dev/"
 const  country_form = document.getElementById("country_form")
 const name_input=document.getElementById("country-names-input")
 const name_datalist = document.getElementById("country-names")
-
 const c_flag = document.querySelector(".country-flag")
+const c_langs = document.querySelector(".country-langs");
+
 const c_map = document.querySelector(".country-map")
 const searchBtn = document.getElementById("searchBtn")
 const cpy_link = document.querySelector(".copy_link")
@@ -34,7 +35,7 @@ window.onload=()=>{
 
 async function displayCountryData(country_name){
     document.querySelector(".country-data").classList.add("loading")
-    const response =await fetch(restapiurl+"name/"+country_name+"?fullText=True&fields=flags,name,latlng,demonym,population,area,")
+    const response =await fetch(restapiurl+"name/"+country_name+"?fullText=True&fields=flags,name,latlng,demonym,population,area,languages")
     document.querySelector(".country-data").classList.remove("loading")
     
 
@@ -45,10 +46,11 @@ async function displayCountryData(country_name){
         let flagdata = data[0].flags
         let nameData = data[0].name;
         let latlongData = data[0].latlng;
-        
+        let languages = data[0].languages;
         let denonymData = data[0].demonym;
         let areadata = data[0].area;
         let populationData = data[0].population;
+
         cpy_link.style.display="";
         cpy_link.textContent="Copy Link"
         cpy_link.classList.remove("copied")
@@ -67,6 +69,22 @@ async function displayCountryData(country_name){
        c_flag.querySelector("img").alt=flagdata.alt;
         let icon_link=document.querySelector('link[rel="shortcut icon"]')
         icon_link.href=flagdata.png;
+
+        c_langs.querySelector(".title").innerHTML = `<span class="sthr_text" style="background-image:url(${flagdata.png})">${nameData}'s</span> Languages`
+        languages.forEach(lang => {
+            console.log(lang)
+                    c_langs.querySelector(".list").innerHTML +=`       
+        <div class="lang-card">
+                    <p class="lang-name">${lang.name} <i class="true-name">(${lang.nativeName})</i></p>
+                    <p class="trans-title">Translate</p>
+                    <div class="trans-box">
+                        <label for="input">English</label>
+                        <textarea id="input" name="en" oninput="translateLang(this)"></textarea>
+                        <label for="output">${lang.name}</label>
+                        <textarea id="output" name="${lang.iso639_1}" oninput="translateLang(this)"></textarea>
+                    </div>
+                </div>`
+        });
 
 
        c_map.querySelector(".title").innerHTML = `<span class="sthr_text" style="background-image:url(${flagdata.png})">${nameData}'s</span> MAP`
@@ -96,7 +114,17 @@ async function getNames(){
    }
 }
 
+async function translateLang(textarea){
+    const outputTextarea= textarea.parentElement.querySelector(`textarea:not([name='${textarea.name}'])`)
 
+    const translator = await Translator.create({
+  sourceLanguage: textarea.name,
+  targetLanguage: outputTextarea.name,
+});
+const translation = await translator.translate(textarea.value);
+outputTextarea.value = translation;
+
+}
 function parseforColorNames(string){
     let arr_of_words = string.split(" ")
     let parsedString=""
