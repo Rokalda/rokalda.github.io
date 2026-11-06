@@ -41,7 +41,7 @@ async function displayCountryData(country_name){
 
     if(response.ok){
         console.log("Request to "+response.url+" was successful")
-        c_langs.querySelector(".title").innerHTML=""
+       c_langs.querySelector(".list").innerHTML=""
         const data = await response.json();
         let flagdata = data[0].flags
         let nameData = data[0].name;
